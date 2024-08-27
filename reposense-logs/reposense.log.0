@@ -1,102 +1,102 @@
-Aug 26, 2024 1:22:57 AM reposense.system.LogsManager addFileHandler
+Aug 27, 2024 1:23:38 AM reposense.system.LogsManager addFileHandler
 INFO: Log temp folder has been successfully created
-Aug 26, 2024 1:22:57 AM reposense.parser.CsvParser validateHeader
+Aug 27, 2024 1:23:39 AM reposense.parser.CsvParser validateHeader
 INFO: Parsed header of CSV file, repo-config.csv, and recognized columns: Ignore Standalone Config,  Repository's Location,  Skip Ignored File Analysis,  Branch,  Shallow Cloning,  File formats,  Ignore Glob List,  Ignore Authors List,  Find Previous Authors,  File Size Limit,  Ignore File Size Limit,  Ignore Commits List
-Aug 26, 2024 1:22:57 AM reposense.parser.CsvParser isLineMalformed
+Aug 27, 2024 1:23:39 AM reposense.parser.CsvParser isLineMalformed
 WARNING: Line 4 in CSV file, repo-config.csv, is malformed.
 Content: [EMPTY LINE]
-Aug 26, 2024 1:22:57 AM reposense.parser.CsvParser validateHeader
+Aug 27, 2024 1:23:39 AM reposense.parser.CsvParser validateHeader
 INFO: Parsed header of CSV file, author-config.csv, and recognized columns: Author's Emails,  Repository's Location,  Branch,  Author's Git Host ID,  Author's Display Name,  Ignore Glob List,  Author's Git Author Name
-Aug 26, 2024 1:22:57 AM reposense.model.ConfigRunConfiguration getRepoConfigurations
+Aug 27, 2024 1:23:39 AM reposense.model.ConfigRunConfiguration getRepoConfigurations
 WARNING: No valid configurations in the author-config.csv.
 reposense.parser.exceptions.InvalidCsvException: No valid configurations in the author-config.csv.
 	at reposense.parser.CsvParser.parse(CsvParser.java:115)
 	at reposense.model.ConfigRunConfiguration.getRepoConfigurations(ConfigRunConfiguration.java:50)
 	at reposense.RepoSense.main(RepoSense.java:52)
 
-Aug 26, 2024 1:22:57 AM reposense.report.RepoCloner spawnCloneProcess
-INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-ui.git...
-Aug 26, 2024 1:22:57 AM reposense.report.RepoCloner spawnCloneProcess
-INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-email-service.git...
-Aug 26, 2024 1:22:57 AM reposense.report.RepoCloner spawnCloneProcess
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla.git...
-Aug 26, 2024 1:22:57 AM reposense.report.RepoCloner spawnCloneProcess
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner spawnCloneProcess
+INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-ui.git...
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-business-model.git...
-Aug 26, 2024 1:22:57 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-ui.git to complete...
-Aug 26, 2024 1:22:57 AM reposense.report.RepoCloner waitForCloneProcess
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner spawnCloneProcess
+INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-email-service.git...
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla.git to complete...
-Aug 26, 2024 1:22:57 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-business-model.git to complete...
-Aug 26, 2024 1:22:57 AM reposense.report.RepoCloner waitForCloneProcess
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-email-service.git to complete...
-Aug 26, 2024 1:22:58 AM reposense.report.RepoCloner waitForCloneProcess
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-business-model.git to complete...
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-ui.git to complete...
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Cloning of https://github.com/codewalla-engineering/coachwalla-email-service.git completed!
-Aug 26, 2024 1:22:58 AM reposense.report.RepoCloner spawnCloneProcess
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-assistant-service.git...
-Aug 26, 2024 1:22:58 AM reposense.report.RepoCloner waitForCloneProcess
+Aug 27, 2024 1:23:39 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-assistant-service.git to complete...
-Aug 26, 2024 1:22:58 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Cloning of https://github.com/codewalla-engineering/coachwalla-business-model.git completed!
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator analyzeRepos
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [1/5] Analyzing https://github.com/codewalla-engineering/coachwalla-email-service.git (main)...
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator analyzeRepos
-INFO: [2/5] Analyzing https://github.com/codewalla-engineering/coachwalla-business-model.git (main)...
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator updateRepoConfig
-INFO: https://github.com/codewalla-engineering/coachwalla-email-service.git (main) does not contain a standalone config file.
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator updateAuthorList
-INFO: https://github.com/codewalla-engineering/coachwalla-email-service.git (main) has no authors specified, using all authors by default.
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator updateRepoConfig
-INFO: https://github.com/codewalla-engineering/coachwalla-business-model.git (main) does not contain a standalone config file.
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator updateAuthorList
-INFO: https://github.com/codewalla-engineering/coachwalla-business-model.git (main) has no authors specified, using all authors by default.
-Aug 26, 2024 1:22:58 AM reposense.report.RepoCloner waitForCloneProcess
+Aug 27, 2024 1:23:40 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Cloning of https://github.com/codewalla-engineering/coachwalla-business-model.git completed!
+Aug 27, 2024 1:23:40 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Cloning of https://github.com/codewalla-engineering/coachwalla.git completed!
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator analyzeRepos
-WARNING: No authors found with commits for https://github.com/codewalla-engineering/coachwalla-email-service.git (main).
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator analyzeRepos
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator analyzeRepos
+INFO: [2/5] Analyzing https://github.com/codewalla-engineering/coachwalla-business-model.git (main)...
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [3/5] Analyzing https://github.com/codewalla-engineering/coachwalla.git (main)...
-Aug 26, 2024 1:22:58 AM reposense.authorship.FileInfoExtractor extractTextFileInfos
-INFO: Extracting relevant file info from https://github.com/codewalla-engineering/coachwalla-business-model.git (main)...
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator updateRepoConfig
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator updateRepoConfig
+INFO: https://github.com/codewalla-engineering/coachwalla-email-service.git (main) does not contain a standalone config file.
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator updateAuthorList
+INFO: https://github.com/codewalla-engineering/coachwalla-email-service.git (main) has no authors specified, using all authors by default.
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator updateRepoConfig
+INFO: https://github.com/codewalla-engineering/coachwalla-business-model.git (main) does not contain a standalone config file.
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator updateAuthorList
+INFO: https://github.com/codewalla-engineering/coachwalla-business-model.git (main) has no authors specified, using all authors by default.
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator updateRepoConfig
 INFO: https://github.com/codewalla-engineering/coachwalla.git (main) does not contain a standalone config file.
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator updateAuthorList
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator updateAuthorList
 INFO: https://github.com/codewalla-engineering/coachwalla.git (main) has no authors specified, using all authors by default.
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator analyzeRepos
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator analyzeRepos
 WARNING: No authors found with commits for https://github.com/codewalla-engineering/coachwalla.git (main).
-Aug 26, 2024 1:22:58 AM reposense.report.RepoCloner waitForCloneProcess
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator analyzeRepos
+WARNING: No authors found with commits for https://github.com/codewalla-engineering/coachwalla-email-service.git (main).
+Aug 27, 2024 1:23:40 AM reposense.authorship.FileInfoExtractor extractTextFileInfos
+INFO: Extracting relevant file info from https://github.com/codewalla-engineering/coachwalla-business-model.git (main)...
+Aug 27, 2024 1:23:40 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Cloning of https://github.com/codewalla-engineering/coachwalla-assistant-service.git completed!
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator analyzeRepos
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [4/5] Analyzing https://github.com/codewalla-engineering/coachwalla-assistant-service.git (main)...
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator updateRepoConfig
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator updateRepoConfig
 INFO: https://github.com/codewalla-engineering/coachwalla-assistant-service.git (main) does not contain a standalone config file.
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator updateAuthorList
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator updateAuthorList
 INFO: https://github.com/codewalla-engineering/coachwalla-assistant-service.git (main) has no authors specified, using all authors by default.
-Aug 26, 2024 1:22:58 AM reposense.report.ReportGenerator analyzeRepos
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator analyzeRepos
 WARNING: No authors found with commits for https://github.com/codewalla-engineering/coachwalla-assistant-service.git (main).
-Aug 26, 2024 1:22:58 AM reposense.commits.CommitInfoExtractor extractCommitInfos
+Aug 27, 2024 1:23:40 AM reposense.commits.CommitInfoExtractor extractCommitInfos
 INFO: Extracting commits info for https://github.com/codewalla-engineering/coachwalla-business-model.git (main)...
-Aug 26, 2024 1:22:58 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
+Aug 27, 2024 1:23:40 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
 INFO: Analyzing commits info for https://github.com/codewalla-engineering/coachwalla-business-model.git (main)...
-Aug 26, 2024 1:22:59 AM reposense.report.ReportGenerator analyzeRepo
-INFO: Analysis of https://github.com/codewalla-engineering/coachwalla-business-model.git (main) completed!
-Aug 26, 2024 1:22:59 AM reposense.report.RepoCloner waitForCloneProcess
+Aug 27, 2024 1:23:40 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Cloning of https://github.com/codewalla-engineering/coachwalla-ui.git completed!
-Aug 26, 2024 1:22:59 AM reposense.report.ReportGenerator analyzeRepos
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [5/5] Analyzing https://github.com/codewalla-engineering/coachwalla-ui.git (develop)...
-Aug 26, 2024 1:22:59 AM reposense.report.ReportGenerator updateRepoConfig
+Aug 27, 2024 1:23:40 AM reposense.report.ReportGenerator analyzeRepo
+INFO: Analysis of https://github.com/codewalla-engineering/coachwalla-business-model.git (main) completed!
+Aug 27, 2024 1:23:41 AM reposense.report.ReportGenerator updateRepoConfig
 INFO: https://github.com/codewalla-engineering/coachwalla-ui.git (develop) does not contain a standalone config file.
-Aug 26, 2024 1:22:59 AM reposense.report.ReportGenerator updateAuthorList
+Aug 27, 2024 1:23:41 AM reposense.report.ReportGenerator updateAuthorList
 INFO: https://github.com/codewalla-engineering/coachwalla-ui.git (develop) has no authors specified, using all authors by default.
-Aug 26, 2024 1:22:59 AM reposense.authorship.FileInfoExtractor extractTextFileInfos
+Aug 27, 2024 1:23:41 AM reposense.authorship.FileInfoExtractor extractTextFileInfos
 INFO: Extracting relevant file info from https://github.com/codewalla-engineering/coachwalla-ui.git (develop)...
-Aug 26, 2024 1:23:01 AM reposense.commits.CommitInfoExtractor extractCommitInfos
+Aug 27, 2024 1:23:42 AM reposense.commits.CommitInfoExtractor extractCommitInfos
 INFO: Extracting commits info for https://github.com/codewalla-engineering/coachwalla-ui.git (develop)...
-Aug 26, 2024 1:23:01 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
+Aug 27, 2024 1:23:42 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
 INFO: Analyzing commits info for https://github.com/codewalla-engineering/coachwalla-ui.git (develop)...
-Aug 26, 2024 1:23:01 AM reposense.report.ReportGenerator analyzeRepo
+Aug 27, 2024 1:23:42 AM reposense.report.ReportGenerator analyzeRepo
 INFO: Analysis of https://github.com/codewalla-engineering/coachwalla-ui.git (develop) completed!
-Aug 26, 2024 1:23:01 AM reposense.report.ReportGenerator generateReposReport
+Aug 27, 2024 1:23:43 AM reposense.report.ReportGenerator generateReposReport
 INFO: The report is generated at /home/runner/work/publish-RepoSense/publish-RepoSense/reposense-report
-Aug 26, 2024 1:23:01 AM reposense.RepoSense main
-INFO: Elapsed processing time: 4.11 second(s)
+Aug 27, 2024 1:23:43 AM reposense.RepoSense main
+INFO: Elapsed processing time: 4.50 second(s)
