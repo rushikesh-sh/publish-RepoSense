@@ -1,116 +1,146 @@
-Sep 03, 2024 1:24:34 AM reposense.system.LogsManager addFileHandler
+Sep 03, 2024 6:53:15 AM reposense.system.LogsManager addFileHandler
 INFO: Log temp folder has been successfully created
-Sep 03, 2024 1:24:34 AM reposense.parser.CsvParser validateHeader
+Sep 03, 2024 6:53:15 AM reposense.parser.CsvParser validateHeader
 INFO: Parsed header of CSV file, repo-config.csv, and recognized columns: Ignore Standalone Config,  Repository's Location,  Skip Ignored File Analysis,  Branch,  Shallow Cloning,  File formats,  Ignore Glob List,  Ignore Authors List,  Find Previous Authors,  File Size Limit,  Ignore File Size Limit,  Ignore Commits List
-Sep 03, 2024 1:24:34 AM reposense.parser.CsvParser isLineMalformed
+Sep 03, 2024 6:53:15 AM reposense.parser.CsvParser isLineMalformed
 WARNING: Line 4 in CSV file, repo-config.csv, is malformed.
 Content: [EMPTY LINE]
-Sep 03, 2024 1:24:34 AM reposense.parser.CsvParser validateHeader
+Sep 03, 2024 6:53:15 AM reposense.parser.CsvParser validateHeader
 INFO: Parsed header of CSV file, author-config.csv, and recognized columns: Author's Emails,  Repository's Location,  Branch,  Author's Git Host ID,  Author's Display Name,  Ignore Glob List,  Author's Git Author Name
-Sep 03, 2024 1:24:34 AM reposense.model.ConfigRunConfiguration getRepoConfigurations
+Sep 03, 2024 6:53:15 AM reposense.model.ConfigRunConfiguration getRepoConfigurations
 WARNING: No valid configurations in the author-config.csv.
 reposense.parser.exceptions.InvalidCsvException: No valid configurations in the author-config.csv.
 	at reposense.parser.CsvParser.parse(CsvParser.java:115)
 	at reposense.model.ConfigRunConfiguration.getRepoConfigurations(ConfigRunConfiguration.java:50)
 	at reposense.RepoSense.main(RepoSense.java:52)
 
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner spawnCloneProcess
-INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla.git...
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner spawnCloneProcess
-INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-ui.git...
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner spawnCloneProcess
+Sep 03, 2024 6:53:15 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-terraform.git...
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner spawnCloneProcess
+Sep 03, 2024 6:53:15 AM reposense.report.RepoCloner spawnCloneProcess
+INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla.git...
+Sep 03, 2024 6:53:15 AM reposense.report.RepoCloner spawnCloneProcess
+INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-ui.git...
+Sep 03, 2024 6:53:15 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-business-model.git...
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla.git to complete...
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner waitForCloneProcess
+Sep 03, 2024 6:53:15 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-business-model.git to complete...
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner waitForCloneProcess
+Sep 03, 2024 6:53:15 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-ui.git to complete...
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner waitForCloneProcess
+Sep 03, 2024 6:53:15 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-terraform.git to complete...
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Cloning of https://github.com/codewalla-engineering/coachwalla-terraform.git completed!
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner spawnCloneProcess
+Sep 03, 2024 6:53:15 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla.git to complete...
+Sep 03, 2024 6:53:16 AM reposense.report.RepoCloner waitForCloneProcess
+WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-terraform[main]", will skip this repo.
+reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-terraform.git' 'repos/codewalla-engineering_coachwalla-terraform/coachwalla-terraform_bare' on path . :
+Cloning into bare repository 'repos/codewalla-engineering_coachwalla-terraform/coachwalla-terraform_bare'...
+remote: Write access to repository not granted.
+fatal: unable to access 'https://github.com/codewalla-engineering/coachwalla-terraform.git/': The requested URL returned error: 403
+
+	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
+	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:323)
+	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:123)
+	at reposense.report.ReportGenerator.cloneRepo(ReportGenerator.java:270)
+	at reposense.report.ReportGenerator.lambda$cloneAndAnalyzeRepos$0(ReportGenerator.java:213)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Sep 03, 2024 6:53:16 AM reposense.report.RepoCloner waitForCloneProcess
+WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-business-model[main]", will skip this repo.
+reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-business-model.git' 'repos/codewalla-engineering_coachwalla-business-model/coachwalla-business-model_bare' on path . :
+Cloning into bare repository 'repos/codewalla-engineering_coachwalla-business-model/coachwalla-business-model_bare'...
+remote: Write access to repository not granted.
+fatal: unable to access 'https://github.com/codewalla-engineering/coachwalla-business-model.git/': The requested URL returned error: 403
+
+	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
+	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:323)
+	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:123)
+	at reposense.report.ReportGenerator.cloneRepo(ReportGenerator.java:270)
+	at reposense.report.ReportGenerator.lambda$cloneAndAnalyzeRepos$0(ReportGenerator.java:213)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Sep 03, 2024 6:53:16 AM reposense.report.RepoCloner waitForCloneProcess
+WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla[main]", will skip this repo.
+reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla.git' 'repos/codewalla-engineering_coachwalla/coachwalla_bare' on path . :
+Cloning into bare repository 'repos/codewalla-engineering_coachwalla/coachwalla_bare'...
+remote: Write access to repository not granted.
+fatal: unable to access 'https://github.com/codewalla-engineering/coachwalla.git/': The requested URL returned error: 403
+
+	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
+	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:323)
+	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:123)
+	at reposense.report.ReportGenerator.cloneRepo(ReportGenerator.java:270)
+	at reposense.report.ReportGenerator.lambda$cloneAndAnalyzeRepos$0(ReportGenerator.java:213)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Sep 03, 2024 6:53:16 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-email-service.git...
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-email-service.git to complete...
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator analyzeRepos
-INFO: [1/6] Analyzing https://github.com/codewalla-engineering/coachwalla-terraform.git (main)...
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator updateRepoConfig
-INFO: https://github.com/codewalla-engineering/coachwalla-terraform.git (main) does not contain a standalone config file.
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator updateAuthorList
-INFO: https://github.com/codewalla-engineering/coachwalla-terraform.git (main) has no authors specified, using all authors by default.
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator analyzeRepos
-WARNING: No authors found with commits for https://github.com/codewalla-engineering/coachwalla-terraform.git (main).
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Cloning of https://github.com/codewalla-engineering/coachwalla-business-model.git completed!
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner spawnCloneProcess
+Sep 03, 2024 6:53:16 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-assistant-service.git...
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator analyzeRepos
-INFO: [2/6] Analyzing https://github.com/codewalla-engineering/coachwalla-business-model.git (main)...
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner waitForCloneProcess
+Sep 03, 2024 6:53:16 AM reposense.report.RepoCloner waitForCloneProcess
+WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-ui[develop]", will skip this repo.
+reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-ui.git' 'repos/codewalla-engineering_coachwalla-ui/coachwalla-ui_bare' on path . :
+Cloning into bare repository 'repos/codewalla-engineering_coachwalla-ui/coachwalla-ui_bare'...
+remote: Write access to repository not granted.
+fatal: unable to access 'https://github.com/codewalla-engineering/coachwalla-ui.git/': The requested URL returned error: 403
+
+	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
+	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:323)
+	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:123)
+	at reposense.report.ReportGenerator.cloneRepo(ReportGenerator.java:270)
+	at reposense.report.ReportGenerator.lambda$cloneAndAnalyzeRepos$0(ReportGenerator.java:213)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Sep 03, 2024 6:53:16 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-email-service.git to complete...
+Sep 03, 2024 6:53:16 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-assistant-service.git to complete...
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator updateRepoConfig
-INFO: https://github.com/codewalla-engineering/coachwalla-business-model.git (main) does not contain a standalone config file.
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator updateAuthorList
-INFO: https://github.com/codewalla-engineering/coachwalla-business-model.git (main) has no authors specified, using all authors by default.
-Sep 03, 2024 1:24:35 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Cloning of https://github.com/codewalla-engineering/coachwalla.git completed!
-Sep 03, 2024 1:24:35 AM reposense.authorship.FileInfoExtractor extractTextFileInfos
-INFO: Extracting relevant file info from https://github.com/codewalla-engineering/coachwalla-business-model.git (main)...
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator analyzeRepos
-INFO: [3/6] Analyzing https://github.com/codewalla-engineering/coachwalla.git (main)...
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator updateRepoConfig
-INFO: https://github.com/codewalla-engineering/coachwalla.git (main) does not contain a standalone config file.
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator updateAuthorList
-INFO: https://github.com/codewalla-engineering/coachwalla.git (main) has no authors specified, using all authors by default.
-Sep 03, 2024 1:24:35 AM reposense.report.ReportGenerator analyzeRepos
-WARNING: No authors found with commits for https://github.com/codewalla-engineering/coachwalla.git (main).
-Sep 03, 2024 1:24:36 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Cloning of https://github.com/codewalla-engineering/coachwalla-email-service.git completed!
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator analyzeRepos
-INFO: [4/6] Analyzing https://github.com/codewalla-engineering/coachwalla-email-service.git (main)...
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator updateRepoConfig
-INFO: https://github.com/codewalla-engineering/coachwalla-email-service.git (main) does not contain a standalone config file.
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator updateAuthorList
-INFO: https://github.com/codewalla-engineering/coachwalla-email-service.git (main) has no authors specified, using all authors by default.
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator analyzeRepos
-WARNING: No authors found with commits for https://github.com/codewalla-engineering/coachwalla-email-service.git (main).
-Sep 03, 2024 1:24:36 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Cloning of https://github.com/codewalla-engineering/coachwalla-assistant-service.git completed!
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator analyzeRepos
-INFO: [5/6] Analyzing https://github.com/codewalla-engineering/coachwalla-assistant-service.git (main)...
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator updateRepoConfig
-INFO: https://github.com/codewalla-engineering/coachwalla-assistant-service.git (main) does not contain a standalone config file.
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator updateAuthorList
-INFO: https://github.com/codewalla-engineering/coachwalla-assistant-service.git (main) has no authors specified, using all authors by default.
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator analyzeRepos
-WARNING: No authors found with commits for https://github.com/codewalla-engineering/coachwalla-assistant-service.git (main).
-Sep 03, 2024 1:24:36 AM reposense.commits.CommitInfoExtractor extractCommitInfos
-INFO: Extracting commits info for https://github.com/codewalla-engineering/coachwalla-business-model.git (main)...
-Sep 03, 2024 1:24:36 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
-INFO: Analyzing commits info for https://github.com/codewalla-engineering/coachwalla-business-model.git (main)...
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator analyzeRepo
-INFO: Analysis of https://github.com/codewalla-engineering/coachwalla-business-model.git (main) completed!
-Sep 03, 2024 1:24:36 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Cloning of https://github.com/codewalla-engineering/coachwalla-ui.git completed!
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator analyzeRepos
-INFO: [6/6] Analyzing https://github.com/codewalla-engineering/coachwalla-ui.git (develop)...
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator updateRepoConfig
-INFO: https://github.com/codewalla-engineering/coachwalla-ui.git (develop) does not contain a standalone config file.
-Sep 03, 2024 1:24:36 AM reposense.report.ReportGenerator updateAuthorList
-INFO: https://github.com/codewalla-engineering/coachwalla-ui.git (develop) has no authors specified, using all authors by default.
-Sep 03, 2024 1:24:36 AM reposense.authorship.FileInfoExtractor extractTextFileInfos
-INFO: Extracting relevant file info from https://github.com/codewalla-engineering/coachwalla-ui.git (develop)...
-Sep 03, 2024 1:24:38 AM reposense.commits.CommitInfoExtractor extractCommitInfos
-INFO: Extracting commits info for https://github.com/codewalla-engineering/coachwalla-ui.git (develop)...
-Sep 03, 2024 1:24:38 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
-INFO: Analyzing commits info for https://github.com/codewalla-engineering/coachwalla-ui.git (develop)...
-Sep 03, 2024 1:24:38 AM reposense.report.ReportGenerator analyzeRepo
-INFO: Analysis of https://github.com/codewalla-engineering/coachwalla-ui.git (develop) completed!
-Sep 03, 2024 1:24:39 AM reposense.report.ReportGenerator generateReposReport
+Sep 03, 2024 6:53:16 AM reposense.report.RepoCloner waitForCloneProcess
+WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-email-service[main]", will skip this repo.
+reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-email-service.git' 'repos/codewalla-engineering_coachwalla-email-service/coachwalla-email-service_bare' on path . :
+Cloning into bare repository 'repos/codewalla-engineering_coachwalla-email-service/coachwalla-email-service_bare'...
+remote: Write access to repository not granted.
+fatal: unable to access 'https://github.com/codewalla-engineering/coachwalla-email-service.git/': The requested URL returned error: 403
+
+	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
+	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:323)
+	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:123)
+	at reposense.report.ReportGenerator.cloneRepo(ReportGenerator.java:270)
+	at reposense.report.ReportGenerator.lambda$cloneAndAnalyzeRepos$0(ReportGenerator.java:213)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Sep 03, 2024 6:53:16 AM reposense.report.RepoCloner waitForCloneProcess
+WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-assistant-service[main]", will skip this repo.
+reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-assistant-service.git' 'repos/codewalla-engineering_coachwalla-assistant-service/coachwalla-assistant-service_bare' on path . :
+Cloning into bare repository 'repos/codewalla-engineering_coachwalla-assistant-service/coachwalla-assistant-service_bare'...
+remote: Write access to repository not granted.
+fatal: unable to access 'https://github.com/codewalla-engineering/coachwalla-assistant-service.git/': The requested URL returned error: 403
+
+	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
+	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:323)
+	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:123)
+	at reposense.report.ReportGenerator.cloneRepo(ReportGenerator.java:270)
+	at reposense.report.ReportGenerator.lambda$cloneAndAnalyzeRepos$0(ReportGenerator.java:213)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Sep 03, 2024 6:53:16 AM reposense.report.ReportGenerator generateReposReport
 INFO: The report is generated at /home/runner/work/publish-RepoSense/publish-RepoSense/reposense-report
-Sep 03, 2024 1:24:39 AM reposense.RepoSense main
-INFO: Elapsed processing time: 4.50 second(s)
+Sep 03, 2024 6:53:16 AM reposense.RepoSense main
+INFO: Elapsed processing time: 0.65 second(s)
