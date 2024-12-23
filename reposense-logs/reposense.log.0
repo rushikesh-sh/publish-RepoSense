@@ -1,68 +1,36 @@
-Dec 22, 2024 1:44:39 AM reposense.system.LogsManager addFileHandler
+Dec 23, 2024 1:40:02 AM reposense.system.LogsManager addFileHandler
 INFO: Log temp folder has been successfully created
-Dec 22, 2024 1:44:39 AM reposense.parser.CsvParser validateHeader
+Dec 23, 2024 1:40:02 AM reposense.parser.CsvParser validateHeader
 INFO: Parsed header of CSV file, repo-config.csv, and recognized columns: Ignore Standalone Config,  Repository's Location,  Skip Ignored File Analysis,  Branch,  Shallow Cloning,  File formats,  Ignore Glob List,  Ignore Authors List,  Find Previous Authors,  File Size Limit,  Ignore File Size Limit,  Ignore Commits List
-Dec 22, 2024 1:44:39 AM reposense.parser.CsvParser isLineMalformed
+Dec 23, 2024 1:40:02 AM reposense.parser.CsvParser isLineMalformed
 WARNING: Line 4 in CSV file, repo-config.csv, is malformed.
 Content: [EMPTY LINE]
-Dec 22, 2024 1:44:39 AM reposense.parser.CsvParser validateHeader
+Dec 23, 2024 1:40:02 AM reposense.parser.CsvParser validateHeader
 INFO: Parsed header of CSV file, author-config.csv, and recognized columns: Author's Emails,  Repository's Location,  Branch,  Author's Git Host ID,  Author's Display Name,  Ignore Glob List,  Author's Git Author Name
-Dec 22, 2024 1:44:39 AM reposense.model.ConfigRunConfiguration getRepoConfigurations
+Dec 23, 2024 1:40:02 AM reposense.model.ConfigRunConfiguration getRepoConfigurations
 WARNING: No valid configurations in the author-config.csv.
 reposense.parser.exceptions.InvalidCsvException: No valid configurations in the author-config.csv.
 	at reposense.parser.CsvParser.parse(CsvParser.java:115)
 	at reposense.model.ConfigRunConfiguration.getRepoConfigurations(ConfigRunConfiguration.java:50)
 	at reposense.RepoSense.main(RepoSense.java:52)
 
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner spawnCloneProcess
-INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-terraform.git...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner spawnCloneProcess
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-ui.git...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner spawnCloneProcess
-INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-business-model.git...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner spawnCloneProcess
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla.git...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner spawnCloneProcess
+INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-business-model.git...
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner spawnCloneProcess
+INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-terraform.git...
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla.git to complete...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-business-model.git to complete...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-ui.git to complete...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-terraform.git to complete...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
-WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla[main]", will skip this repo.
-reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla.git' 'repos/codewalla-engineering_coachwalla/coachwalla_bare' on path . :
-Cloning into bare repository 'repos/codewalla-engineering_coachwalla/coachwalla_bare'...
-fatal: could not read Password for 'https://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@github.com': No such device or address
-
-	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
-	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:323)
-	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:123)
-	at reposense.report.ReportGenerator.cloneRepo(ReportGenerator.java:270)
-	at reposense.report.ReportGenerator.lambda$cloneAndAnalyzeRepos$0(ReportGenerator.java:213)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
-WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-ui[develop]", will skip this repo.
-reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-ui.git' 'repos/codewalla-engineering_coachwalla-ui/coachwalla-ui_bare' on path . :
-Cloning into bare repository 'repos/codewalla-engineering_coachwalla-ui/coachwalla-ui_bare'...
-fatal: could not read Password for 'https://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@github.com': No such device or address
-
-	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
-	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:323)
-	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:123)
-	at reposense.report.ReportGenerator.cloneRepo(ReportGenerator.java:270)
-	at reposense.report.ReportGenerator.lambda$cloneAndAnalyzeRepos$0(ReportGenerator.java:213)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-business-model.git to complete...
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-ui.git to complete...
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
 WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-business-model[main]", will skip this repo.
 reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-business-model.git' 'repos/codewalla-engineering_coachwalla-business-model/coachwalla-business-model_bare' on path . :
 Cloning into bare repository 'repos/codewalla-engineering_coachwalla-business-model/coachwalla-business-model_bare'...
@@ -78,7 +46,7 @@ fatal: could not read Password for 'https://ghp_HQcwIDNNHTL8JyvnvHsUxorvv04WqQ2M
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
 WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-terraform[main]", will skip this repo.
 reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-terraform.git' 'repos/codewalla-engineering_coachwalla-terraform/coachwalla-terraform_bare' on path . :
 Cloning into bare repository 'repos/codewalla-engineering_coachwalla-terraform/coachwalla-terraform_bare'...
@@ -94,18 +62,12 @@ fatal: could not read Password for 'https://ghp_HQcwIDNNHTL8JyvnvHsUxorvv04WqQ2M
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner spawnCloneProcess
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-email-service.git...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner spawnCloneProcess
-INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-assistant-service.git...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-assistant-service.git to complete...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
-INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-email-service.git to complete...
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
-WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-email-service[main]", will skip this repo.
-reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-email-service.git' 'repos/codewalla-engineering_coachwalla-email-service/coachwalla-email-service_bare' on path . :
-Cloning into bare repository 'repos/codewalla-engineering_coachwalla-email-service/coachwalla-email-service_bare'...
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
+WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-ui[develop]", will skip this repo.
+reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-ui.git' 'repos/codewalla-engineering_coachwalla-ui/coachwalla-ui_bare' on path . :
+Cloning into bare repository 'repos/codewalla-engineering_coachwalla-ui/coachwalla-ui_bare'...
 fatal: could not read Password for 'https://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@github.com': No such device or address
 
 	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
@@ -118,7 +80,29 @@ fatal: could not read Password for 'https://ghp_HQcwIDNNHTL8JyvnvHsUxorvv04WqQ2M
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 
-Dec 22, 2024 1:44:40 AM reposense.report.RepoCloner waitForCloneProcess
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
+WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla[main]", will skip this repo.
+reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla.git' 'repos/codewalla-engineering_coachwalla/coachwalla_bare' on path . :
+Cloning into bare repository 'repos/codewalla-engineering_coachwalla/coachwalla_bare'...
+fatal: could not read Password for 'https://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@github.com': No such device or address
+
+	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
+	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:323)
+	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:123)
+	at reposense.report.ReportGenerator.cloneRepo(ReportGenerator.java:270)
+	at reposense.report.ReportGenerator.lambda$cloneAndAnalyzeRepos$0(ReportGenerator.java:213)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner spawnCloneProcess
+INFO: Cloning in parallel from https://github.com/codewalla-engineering/coachwalla-assistant-service.git...
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-email-service.git to complete...
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Waiting for cloning of https://github.com/codewalla-engineering/coachwalla-assistant-service.git to complete...
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
 WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-assistant-service[main]", will skip this repo.
 reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-assistant-service.git' 'repos/codewalla-engineering_coachwalla-assistant-service/coachwalla-assistant-service_bare' on path . :
 Cloning into bare repository 'repos/codewalla-engineering_coachwalla-assistant-service/coachwalla-assistant-service_bare'...
@@ -134,7 +118,23 @@ fatal: could not read Password for 'https://ghp_HQcwIDNNHTL8JyvnvHsUxorvv04WqQ2M
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 
-Dec 22, 2024 1:44:40 AM reposense.report.ReportGenerator generateReposReport
+Dec 23, 2024 1:40:02 AM reposense.report.RepoCloner waitForCloneProcess
+WARNING: Exception met while trying to clone the repo "codewalla-engineering/coachwalla-email-service[main]", will skip this repo.
+reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare 'https://github.com/codewalla-engineering/coachwalla-email-service.git' 'repos/codewalla-engineering_coachwalla-email-service/coachwalla-email-service_bare' on path . :
+Cloning into bare repository 'repos/codewalla-engineering_coachwalla-email-service/coachwalla-email-service_bare'...
+fatal: could not read Password for 'https://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@github.com': No such device or address
+
+	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:46)
+	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:323)
+	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:123)
+	at reposense.report.ReportGenerator.cloneRepo(ReportGenerator.java:270)
+	at reposense.report.ReportGenerator.lambda$cloneAndAnalyzeRepos$0(ReportGenerator.java:213)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Dec 23, 2024 1:40:02 AM reposense.report.ReportGenerator generateReposReport
 INFO: The report is generated at /home/runner/work/publish-RepoSense/publish-RepoSense/reposense-report
-Dec 22, 2024 1:44:40 AM reposense.RepoSense main
-INFO: Elapsed processing time: 0.68 second(s)
+Dec 23, 2024 1:40:02 AM reposense.RepoSense main
+INFO: Elapsed processing time: 0.64 second(s)
